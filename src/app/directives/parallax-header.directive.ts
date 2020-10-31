@@ -1,5 +1,6 @@
 import { Directive, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
 import { DomController } from '@ionic/angular';
+import { ScrollDetail } from '@ionic/core';
 
 @Directive({
   selector: '[appParallaxHeader]'
@@ -25,7 +26,7 @@ export class ParallaxHeaderDirective implements OnInit {
     });
   }
 
-  @HostListener('ionScroll', ['$event']) onContentScroll($event) {
+  @HostListener('ionScroll', ['$event']) onContentScroll($event: CustomEvent<ScrollDetail>) {
     //console.log('EVENT: ', $event);
     const scrollTop = $event.detail.scrollTop;
     //console.log('scroll: ', scrollTop);
